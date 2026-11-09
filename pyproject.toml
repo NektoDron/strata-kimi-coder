@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "strata-coder"
+version = "0.1.0"
+description = "Strata-Coder 3-Tier MoE Engine & Server for Grawnch/Kimi-K3.1-Pro-Coder"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "grawnchtoader"}
+]
+dependencies = [
+    "torch>=2.3.0",
+    "triton>=3.0.0; platform_system != 'Windows'",
+    "transformers>=4.48.0",
+    "safetensors>=0.4.3",
+    "huggingface_hub>=0.24.0",
+    "tiktoken>=0.7.0",
+    "blobfile>=2.1.0",
+    "numpy>=1.24.0",
+]
+
+[project.scripts]
+strata-coder = "strata_coder.serve:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["python/strata_coder"]
+
+[project.urls]
+Homepage = "https://github.com/grawnchtoader/strata"
+Repository = "https://github.com/grawnchtoader/strata"
